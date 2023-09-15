@@ -1,0 +1,129 @@
+{% extends "main/layout/base.twig" %}
+
+{% block title %}Edit Siswa{% endblock %}
+
+{% block content %}
+
+
+
+
+<script>
+ 
+
+let lbl = JSON.parse('{{ jso|json_encode|e("js") }}');
+let ids = JSON.parse('{{ id|json_encode|e("js") }}');
+
+
+const options = ids.map(function(row) {
+
+   // This function defines the "mapping behaviour". name and title 
+   // data from each "row" from your columns array is mapped to a 
+   // corresponding item in the new "options" array
+
+   return { id : row.id, label : row.nama_sekolah }
+})
+
+let sekolah = options.map(a => a.label);
+
+
+
+$(function() {
+    $("#skill_input").autocomplete({
+        source: options,
+        select: function( event, ui ) {
+            event.preventDefault();
+            valid = true;
+            console.log(ui.item.id);
+            $("#skill_input").val(ui.item.label);
+            $("#ids").val(ui.item.id);
+        },
+         open: function(e) {
+            valid = false;
+          },
+          close: function(e){
+              if (!valid) $(this).val('');
+          },
+    });
+
+    $("#skill_input").change(function(){
+          console.log(sekolah.indexOf($(this).val()));
+        if (sekolah.indexOf($(this).val()) == -1){
+            $(this).val("");
+        }
+    });
+
+});
+</script>
+
+
+
+ 
+  
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container col mt-4">
+<div class="row flex-lg-nowrap">
+  
+
+  <div class="col mx-3">
+    <div class="e-tabs mb-3 px-3">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#">Sekolah</a></li>
+        <li class="nav-item"><a class="nav-link " href="#">Siswa</a></li>
+      </ul>
+    </div>
+
+    <div class="row flex-lg-nowrap">
+      <div class="col mb-3">
+        <div class="e-panel card">
+          <div class="card-body">
+            <div class="card-title">
+              <h6 class="mr-2"><span></span> 
+              <div class="text-center">  
+              <a href="{{ baseUrl }}/siswa" type="button" class="btn btn-primary">
+             Kembali
+            </a>
+              </div>
+             </h6>
+               
+            </div>
+           
+              <form action="{{ baseUrl }}/siswa/edit" method="post">
+                {% for siswa in data %}
+                 <input type="hidden" name="id" class="form-control" id="exampleInputEmail1"  value="{{siswa.id}}"  required aria-describedby="emailHelp">
+             
+                <div class="mb-3 mt-4">
+                    <label for="exampleInputEmail1" class="form-label">Nama</label>
+                    <input type="text" name="nama" class="form-control" id="exampleInputEmail1"  value="{{siswa.nama}}"  required aria-describedby="emailHelp">
+                </div>
+                 <div class="mb-3 mt-4">
+                    <label for="exampleInputEmail1" class="form-label">email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="{{siswa.email}}"  required aria-describedby="emailHelp">
+                </div>
+
+              
+                <div class="form-group">
+                    <label  for="exampleInputEmail1" class="form-label">Sekolah :</label>
+                    <input type="text" id="skill_input" name="nama_sekolah" class="form-control" value="{{siswa.nama_sekolah}}" required placeholder="Tekan enter untuk komfirmasi">
+                    <input  type="hidden" name="id_sekolah" id="ids" value="{{siswa.id_sekolah}}" placeholder="Start typing...">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Edit</button>
+                 {% endfor %}
+            </form>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+   
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

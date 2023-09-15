@@ -1,0 +1,36 @@
+# Test PHP Fullstack
+
+
+
+Nama : Andri Aditya 
+
+Email : andriadiditya311@gmail.com
+
+
+# Run Application
+
+run terminal
+
+$ php -S localhost:8087 -t public
+
+access http://localhost:8087 
+jika error akses lewat
+http://localhost:8087/public
+
+# Directory Structure
+
+
+└── Data-sekolah/
+    ├── app/
+    │   ├── controller/
+    │   │   ├── homecontroller.php
+    │   │   ├── sekolahcontroller.php
+    │   │   └── siswacontroller.php
+    │   ├── core/
+    │   │   ├── app.php
+    │   │   └── route.php
+    │   └── view
+    ├── public/
+    │   └── index.php
+    └── vendor
+

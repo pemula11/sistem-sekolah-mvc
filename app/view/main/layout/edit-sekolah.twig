@@ -1,0 +1,70 @@
+{% extends "main/layout/base.twig" %}
+
+{% block title %}edit Sekolah{% endblock %}
+
+{% block content %}
+
+
+  
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container col mt-4">
+<div class="row flex-lg-nowrap">
+  
+
+  <div class="col mx-3">
+    <div class="e-tabs mb-3 px-3">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#">Sekolah</a></li>
+        <li class="nav-item"><a class="nav-link " href="#">Siswa</a></li>
+      </ul>
+    </div>
+
+    <div class="row flex-lg-nowrap">
+      <div class="col mb-3">
+        <div class="e-panel card">
+          <div class="card-body">
+            <div class="card-title">
+              <h6 class="mr-2"><span></span> 
+              <div class="text-center">  
+              <a href="{{ baseUrl }}/sekolah" type="button" class="btn btn-primary">
+             Kembali
+            </a>
+              </div>
+             </h6>
+               
+            </div>
+            
+              <form action="{{ baseUrl }}/sekolah/edit" method="post">
+                {% for sekolah in data %}
+                <input type="hidden" name="_method" value="put" />
+                 <input type="hidden" name="id" class="form-control" id="exampleInputEmail1" value="{{sekolah.id}}" required aria-describedby="emailHelp">
+             
+                <div class="mb-3 mt-4">
+                    <label for="exampleInputEmail1" class="form-label">Sekolah</label>
+                    <input type="text" name="nama_sekolah" class="form-control" id="exampleInputEmail1" value="{{sekolah.nama_sekolah}}" required aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                     <label for="exampleFormControlTextarea1">Alamat</label>
+                      <textarea class="form-control" name="alamat"  required id="exampleFormControlTextarea1" rows="3">{{sekolah.alamat}}</textarea>
+  
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Edit</button>
+                 {% endfor %}
+            </form>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+   
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

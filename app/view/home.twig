@@ -1,0 +1,93 @@
+{% extends "main/layout/base.twig" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    
+    
+<div class="container">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
+
+
+
+<div class="main-content">
+  <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <h2 class="mb-5 text-black">Data Sekolah Indonesia</h2>
+      <div class="header-body">
+       
+        
+        <div class="row">
+
+          <!-- Earnings (Monthly) Card Example -->
+          <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2" style="background-color: #4e73df;">
+                  <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                              <div class="text-xs font-weight-bold  text-white text-uppercase mb-1">
+                                  Sekolah Terdaftar</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800"> {{sekolah}} Unit </div>
+                          </div>
+                          <div class="col-auto">
+                              <i class="fas fa-calendar fa-2x text-white "></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-footer "> <a class="text-white d-block" href="{{baseUrl}}/sekolah">Cek Sekarang -></a> </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2" style="background-color: #4e73df;">
+                  <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                              <div class="text-xs font-weight-bold  text-white text-uppercase mb-1">
+                                  Siswa Terdaftar</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800"> {{member}} Murid</div>
+                          </div>
+                          <div class="col-auto">
+                              <i class="fas fa-calendar fa-2x text-white "></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-footer "> <a class="text-white d-block" href="{{baseUrl}}/siswa">Cek Sekarang -></a> </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2" style="background-color: #4e73df;">
+                  <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                              <div class="text-xs font-weight-bold  text-white text-uppercase mb-1">
+                                  Dummy data</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                          </div>
+                          <div class="col-auto">
+                              <i class="fas fa-calendar fa-2x text-white "></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-footer "> <a class="text-white d-block" href="{{baseUrl}}/siswa">Cek Sekarang -></a> </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+</div>
+
+
+</div>
+
+{% endblock %}
